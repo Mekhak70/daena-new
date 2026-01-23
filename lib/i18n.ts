@@ -15,7 +15,7 @@ export const translations = {
       home: 'Գլխավոր էջ',
       about: 'Մեր մասին',
       partners: 'Գործընկերներ',
-      contact: 'Կապողջույց',
+      contact: 'Կապ',
     },
     // Hero Section
     hero: {
