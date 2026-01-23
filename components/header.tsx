@@ -7,7 +7,8 @@ import { Menu, X } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { type Locale, locales, localeNames } from '@/lib/i18n'
 import { cn } from '@/lib/utils'
-
+import Logo from '@/public/logo.png'
+import Image from 'next/image'
 export function Header() {
   const pathname = usePathname()
   const { locale, setLocale, t } = useLanguage()
@@ -25,7 +26,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-primary">daena.am</span>
+         <Image src={Logo} alt="daena.am" width={100} height={30} />
         </Link>
 
         {/* Desktop Navigation */}
