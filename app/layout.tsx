@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="hy">
       <body className={`${inter.className} font-sans antialiased`}>
         {children}
         <Analytics />

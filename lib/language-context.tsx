@@ -18,7 +18,7 @@ export function LanguageProvider({
   children: ReactNode
   initialLocale?: Locale 
 }) {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale || 'en')
+  const [locale, setLocaleState] = useState<Locale>(initialLocale || 'hy')
 
   useEffect(() => {
     if (initialLocale) {
