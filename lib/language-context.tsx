@@ -11,15 +11,26 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en')
+export function LanguageProvider({ 
+  children, 
+  initialLocale 
+}: { 
+  children: ReactNode
+  initialLocale?: Locale 
+}) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale || 'en')
 
   useEffect(() => {
-    const saved = localStorage.getItem('locale') as Locale | null
-    if (saved && ['hy', 'en', 'ru'].includes(saved)) {
-      setLocaleState(saved)
+    if (initialLocale) {
+      setLocaleState(initialLocale)
+      localStorage.setItem('locale', initialLocale)
+    } else {
+      const saved = localStorage.getItem('locale') as Locale | null
+      if (saved && ['hy', 'en', 'ru'].includes(saved)) {
+        setLocaleState(saved)
+      }
     }
-  }, [])
+  }, [initialLocale])
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale)

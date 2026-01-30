@@ -33,7 +33,7 @@ export function ServicesSection() {
           {services.map(({ key, icon: Icon }) => (
             <div
               key={key}
-              className="group rounded-lg border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-lg"
+              className="cursor-pointer group rounded-lg border border-border bg-card p-8 transition-all hover:border-primary/30 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                 <Icon className="h-6 w-6" />
@@ -46,6 +46,7 @@ export function ServicesSection() {
               </p>
             </div>
           ))}
+
         </div>
       </div>
     </section>

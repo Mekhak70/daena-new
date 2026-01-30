@@ -2,12 +2,11 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { LanguageProvider } from '@/lib/language-context'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import './globals.css'
+import { Lato } from 'next/font/google'
+export const lato = Lato({ subsets: ['latin', ], weight: ['400', '700'], variable: '--font-lato' })
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'daena.am - Professional Accounting & Financial Services',
@@ -48,13 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} font-sans antialiased`}>
-        <LanguageProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </LanguageProvider>
+        {children}
         <Analytics />
       </body>
     </html>

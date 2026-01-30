@@ -1,15 +1,6 @@
-import { HeroSection } from '@/components/home/hero-section'
-import { ServicesSection } from '@/components/home/services-section'
-import { BenefitsSection } from '@/components/home/benefits-section'
-import { CTASection } from '@/components/home/cta-section'
+import { redirect } from 'next/navigation'
 
-export default function HomePage() {
-  return (
-    <>
-      <HeroSection />
-      <ServicesSection />
-      <BenefitsSection />
-      <CTASection />
-    </>
-  )
+export default function RootPage() {
+  // Redirect to default locale (English)
+  redirect('/en')
 }

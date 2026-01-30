@@ -6,7 +6,12 @@ import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
 
 export function CTASection() {
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+
+  // Helper function to get localized href
+  const getLocalizedHref = (href: string) => {
+    return `/${locale}${href === '/' ? '' : href}`
+  }
 
   return (
     <section className="bg-background py-20 md:py-28">
@@ -21,7 +26,7 @@ export function CTASection() {
               size="lg"
               className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 sm:w-auto"
             >
-              <Link href="/contact">
+              <Link href={getLocalizedHref('/contact')}>
                 {t.hero.cta}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

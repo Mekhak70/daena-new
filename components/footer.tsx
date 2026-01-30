@@ -7,7 +7,12 @@ import Logo from '@/public/logo.png'
 import Image from 'next/image'
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+
+  // Helper function to get localized href
+  const getLocalizedHref = (href: string) => {
+    return `/${locale}${href === '/' ? '' : href}`
+  }
 
   return (
     <>
@@ -16,7 +21,7 @@ export function Footer() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Company Info */}
             <div>
-              <Link href="/" aria-label="daena.am">
+              <Link href={getLocalizedHref('/')} aria-label="daena.am">
                 <div className="logo" />
               </Link>
 
@@ -33,7 +38,7 @@ export function Footer() {
               <ul className="mt-4 space-y-2">
                 <li>
                   <Link
-                    href="/"
+                    href={getLocalizedHref('/')}
                     className="text-sm text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
                     {t.nav.home}
@@ -41,7 +46,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href={getLocalizedHref('/about')}
                     className="text-sm text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
                     {t.nav.about}
@@ -49,7 +54,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/partners"
+                    href={getLocalizedHref('/partners')}
                     className="text-sm text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
                     {t.nav.partners}
@@ -57,7 +62,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/contact"
+                    href={getLocalizedHref('/contact')}
                     className="text-sm text-primary-foreground/80 transition-colors hover:text-primary-foreground"
                   >
                     {t.nav.contact}
